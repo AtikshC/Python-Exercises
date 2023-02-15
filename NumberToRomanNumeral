@@ -1,0 +1,36 @@
+# #
+# Write a function which takes one argument (integer/ number) and returns its roman number equivalent.
+
+# Symbol       Value
+# I             1
+# V             5
+# X             10
+# L             50
+# C             100
+# D             500
+# M             1000
+
+# Example:
+# Input: num = 58
+# Output: "LVIII"
+# Explanation: L = 50, V = 5, III = 3.
+
+def roman(n):
+    numToRoman = { 1:"I", 5: "V", 10: "X", 50:"L", 100: "C", 500: "D", 1000 : "M" }
+    
+    romanN = ""
+   
+    while(n > 0):
+       biggest = 0
+       for j in numToRoman.keys():
+            if j > biggest and j <= n:
+                biggest = j
+        
+       romanN += numToRoman[biggest]
+       n -= biggest
+    
+    return romanN
+    
+
+print(roman(20))
+    
